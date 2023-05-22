@@ -1,0 +1,20 @@
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/monaco-editor/min/vs/loader.js"
+></script>
+
+<div class="wrapper">
+  <div class="editor">
+    <div class="editor__code">
+      <div id="editorCode"></div>
+    </div>
+  </div>
+
+  <form action="/post_form" method="post" id="theForm">
+    <input type="textarea" id="code" name="code" hidden />
+    <div class="buttons">
+      <button class="button" id="format_button">Format</button>
+      <button class="button" id="submit_button" value="">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<html>	
+
+	<h1>Hello, <%- abcxyz.first -%> <%- abcxyz.last -%>. Nice to e-meet you. </h1>
+
+	<table>
+
+		<thead>
+			<th>Name</th>	
+			<th>Assignment 2</th>
+			<th>Assignment 3</th>
+			<th>Assignment 4</th>			
+		</thead>
+		
+		<% for (var i = 0 ; i < abcxyz.numbers.length; i++) { %>
+
+			<tr>
+				<td><%- abcxyz.numbers[i][0] -%></td>
+				<td><%- abcxyz.numbers[i][1] -%></td>
+				<td><%- abcxyz.numbers[i][2] -%></td>
+				<td><%- abcxyz.numbers[i][3] -%></td>
+			</tr>
+
+		<% } %>
+
+	</table>
+
+</html>
