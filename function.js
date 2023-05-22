@@ -21,8 +21,7 @@ function getActionDetails() {
 
 function createAction(body) {
   const namespace = "cloudspace";
-  const name = randomWords();
-  const code = fs.readFileSync("test.js", { encoding: "utf8" });
+  const name = randomWords();  
 
   var action = Buffer.from(body, "utf-8").toString();
   ow.actions
