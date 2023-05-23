@@ -62,17 +62,13 @@
 	</body>
 
 	<script>
-		function timeConverter(unixTimestamp) {
-			return new Date(unixTimestamp * 1000);
-		}
 
 		document.addEventListener("DOMContentLoaded", readyLoad, false);
-
 		function readyLoad() {
 			var elements = document.getElementsByName("element_timestamp");
 			elements.forEach((element) => {
 				var text = element.innerHTML;
-				element.innerHTML = timeConverter(text);
+				element.innerHTML = Date(text);
 			});
 		}
 	</script>
