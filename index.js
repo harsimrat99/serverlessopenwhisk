@@ -17,7 +17,7 @@ app.use(
 app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
-	functions.list().then((result) => {		
+	functions.list().then((result) => {
 		res.render("table", { array: result });
 	});
 });
@@ -26,8 +26,18 @@ app.get("/about", function (req, res) {
 	res.render("about");
 });
 
-app.get("/ejs/:name", function (req, res) {
-	res.render("ejs", { data: req.params.name });
+app.post("/delete_form/:name", function (req, res) {
+	functions
+		.remove(req.params.name)
+		.then((result) => {
+			res.redirect("/");
+		})
+		.catch((err) => {
+			if (process.env.DEBUGLOG) {
+				console.log(err);
+			}
+			res.redirect("/");
+		});
 });
 
 app.get("/form", function (req, res) {
