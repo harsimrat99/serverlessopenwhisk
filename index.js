@@ -46,7 +46,8 @@ app.get("/form", function (req, res) {
 
 app.post("/post_form", function (req, res) {
 	var code = req.body.code;
-	var answer = functions.create(code).then((result) => {
+	var kind = req.body.function;
+	functions.create(code, kind).then((result) => {
 		if (result === -1) {
 			res.send("An error occurred.");
 		} else {

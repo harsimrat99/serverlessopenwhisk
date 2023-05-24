@@ -19,15 +19,18 @@ function getActionDetails() {
 		});
 }
 
-function createAction(body) {
+function createAction(body, kind) {
 	const namespace = "cloudspace";
 	const name = randomWords();
+  let language = "nodejs";
+  if (kind === "Python") language = "python:default"
 
 	var action = Buffer.from(body, "utf-8").toString();
 	ow.actions
 		.update({
 			name,
 			action,
+      kind: language,
 			annotations: { "web-export": true },
 		})
 		.catch((err) => {
@@ -49,8 +52,8 @@ function deleteAction(name) {
 }
 
 // Create function
-const create = async function (code) {
-	const result = createAction(code);
+const create = async function (code, kind) {
+	const result = createAction(code, kind);
 	return result;
 };
 

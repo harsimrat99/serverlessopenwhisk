@@ -42,7 +42,7 @@ require(["vs/editor/editor.main"], function () {
 function createEditor(editorContainer) {
   let editor = monaco.editor.create(editorContainer, {
     value: HTML_CODE,
-    language: "javascript",
+    // language: "",
     minimap: { enabled: false },
     automaticLayout: true,
     contextmenu: false,
