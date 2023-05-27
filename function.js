@@ -22,7 +22,7 @@ function getActionDetails() {
 function createAction(body, kind) {
 	const namespace = "cloudspace";
 	const name = randomWords();
-  let language = "nodejs";
+  let language = "nodejs:default";
   if (kind === "Python") language = "python:default"
 
 	var action = Buffer.from(body, "utf-8").toString();
