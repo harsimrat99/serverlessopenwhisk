@@ -4,7 +4,7 @@ var fs = require("fs");
 var randomWords = require("random-words");
 const res = require("express/lib/response");
 
-var ow = openwhisk();
+var ow = openwhisk({ignore_certs:true});
 
 async function listActions() {
 	return ow.actions.list();
