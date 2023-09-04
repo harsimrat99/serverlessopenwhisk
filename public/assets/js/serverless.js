@@ -9,7 +9,7 @@ const CSS_LINKS = [
 
 // Elements
 const editorCode = document.getElementById("editorCode");
-const submit_button = document.getElementById("submit_button");
+// const submit_button = document.getElementById("submit_button");
 const format_button = document.getElementById("format_button");
 
 // <iframe> inject CSS
@@ -42,7 +42,7 @@ require(["vs/editor/editor.main"], function () {
 function createEditor(editorContainer) {
   let editor = monaco.editor.create(editorContainer, {
     value: HTML_CODE,
-    // language: "",
+    language: "javascript",
     minimap: { enabled: false },
     automaticLayout: true,
     contextmenu: false,
@@ -57,20 +57,9 @@ function createEditor(editorContainer) {
     },
   });
 
-  setTimeout(() => {
-    editor.getAction("editor.action.formatDocument").run();
-  }, 50);
-
   format_button.onclick = (e) => {
     e.preventDefault();
     editor.getAction("editor.action.formatDocument").run();
-  };
+  };  
 
-  submit_button.onclick = (e) => {
-    e.preventDefault();
-    console.log(editor.getValue());
-    var s = document.getElementById("code");
-    s.value = editor.getValue();
-    document.getElementById("theForm").submit();
-  };
 }

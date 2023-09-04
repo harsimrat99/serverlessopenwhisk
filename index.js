@@ -49,11 +49,16 @@ app.post("/post_form", function (req, res) {
 	var kind = req.body.function;
 	functions.create(code, kind).then((result) => {
 		if (result === -1) {
-			res.send("An error occurred.");
-		} else {
-			res.render("ejs", {
-				link_name: result,
+			res.status(500).send({
+				message: `Function ${result} was not created successfully.`,
 				api_host: process.env.__OW_API_HOST,
+				link_name: result
+			});
+		} else {
+			res.send({
+				message: `Function ${result} created successfully.`,
+				api_host: process.env.__OW_API_HOST,
+				link_name: result
 			});
 		}
 	});
